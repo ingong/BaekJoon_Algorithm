@@ -1,0 +1,10 @@
+const fs = require('fs');
+// const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
+const input = fs.readFileSync('TEST_CASE/index.txt').toString().trim().split('\n');
+const log = console.log;
+const [N, M] = input[0].split(' ').map(Number);
+const board = input.slice(1).map(v => v.split(' ').map(Number));
+const visited = Array.from({ length: N }, () => new Array(M).fill(false));
+const dx = [1, 0, -1, 0];
+const dy = [0, 1, 0, -1];
+const queue = [];
