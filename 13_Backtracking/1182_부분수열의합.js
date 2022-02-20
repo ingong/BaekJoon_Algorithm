@@ -10,7 +10,7 @@ const list = [];
 let answer = 0;
 
 const backtracking = (n) => { 
-  if (n === 5) {
+  if (n === M) {
     const sum = list.reduce((a, b) => a + b, 0);
     if (list.length > 0 && sum === S) answer++;
     return;
