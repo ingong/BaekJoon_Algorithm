@@ -4,8 +4,8 @@ class Queue {
     this.head = 0;
   }
 
-  enqueue(x, y) {
-    this.queue.push({ x, y });
+  enqueue(x) {
+    this.queue.push(x);
   }
 
   dequeue() {
