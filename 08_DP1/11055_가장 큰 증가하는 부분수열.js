@@ -8,10 +8,14 @@ const log = console.log;
 const solution = (input) => {
   const N = +input[0];
   const array = input[1].split(' ').map(Number);
-  const dp = input[1].split(' ').map(Number); 
+  const dp = input[1].split(' ').map(Number);
   
   for (let i = 1; i < array.length; i++){
-    dp[i] = Math.max(dp[i - 1] + array[i], dp[i]);
+    for (let j = 0; j < i; j++){
+      if (array[j] < array[i] && dp[j] + array[i] > dp[i]) {
+        dp[i] = dp[j] + array[i];
+      }
+    }
   }
   log(Math.max(...dp));
 };
