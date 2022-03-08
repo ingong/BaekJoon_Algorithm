@@ -37,9 +37,8 @@ const solution = (input) => {
     }
     
     for (let i = idx; i < N; i++){      
-      if (selected[i]) continue;
       selected[i] = true;
-      DFS(i, cnt + 1);
+      DFS(i + 1, cnt + 1);
       selected[i] = false;
     }
   }
