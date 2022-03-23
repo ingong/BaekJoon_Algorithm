@@ -45,11 +45,9 @@ const solution = (input) => {
     }
     
     for (let i = idx; i < N; i++){
-      if (target.indexOf(i) === -1) {
-        target.push(i)
-        DFS(i + 1, cnt + 1);
-        target.pop(); 
-      }
+      target.push(i)
+      DFS(i + 1, cnt + 1);
+      target.pop(); 
     }
   }
 
