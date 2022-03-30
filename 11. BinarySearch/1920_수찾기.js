@@ -12,31 +12,23 @@ const solution = (input) => {
   const answer = [];
   arr1.sort((a, b) => a - b);
   for (const v of arr2) {
-    binarySearch(v, arr1);
+    const result = binarySearch(v, arr1);
+    answer.push(result);
   }
   
   log(answer.join('\n'));
   
   function binarySearch(target, array) {
     let [start, end] = [0, array.length - 1];
-    while (true) {
+    while (start <= end) {
       const mid = Math.floor((start + end) / 2);
       if (array[mid] < target) start = mid + 1;
       else if (array[mid] > target) end = mid - 1;
-      else {
-        answer.push(1);
-        break;
-      }
-
-      if (start > end) {
-        answer.push(0);
-        break;
-      }
+      else return 1;
     }
-    
-  }
-  
 
+    return 0;    
+  }
 };
 
 solution(input);
