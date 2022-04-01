@@ -24,7 +24,7 @@ const solution = (input) => {
     while (start < end) {
       const mid = Math.floor((start + end) / 2);
       if (cardList[mid] < target) start = mid + 1;
-      else if (cardList[mid] >= target) end = mid;
+      else end = mid;
     }
     return start;
   }
