@@ -17,7 +17,7 @@ const getRepeatCombination = (array, selectedNum) => {
   const result = [];
   array.forEach((fixed, index, origin) => {
     const rest = origin.slice(index);
-    const combination = getCombination(rest, selectedNum - 1);
+    const combination = getRepeatCombination(rest, selectedNum - 1);
     combination.forEach((combi) => result.push([fixed, ...combi]));
   })
   return result;
@@ -31,8 +31,8 @@ const getPermutation = (array, selectedNum) => {
   array.forEach((fixed, index, origin) => {
     const rest = [...origin];
     rest.splice(index, 1);
-    const combination = getCombination(rest, selectedNum - 1);
-    combination.forEach((combi) => result.push([fixed, ...combi]));
+    const permutation = getPermutation(rest, selectedNum - 1);
+    permutation.forEach((permu) => result.push([fixed, ...permu]));
   })
   return result;
 }
@@ -42,8 +42,8 @@ const getRepeatPermutation = (array, selectedNum) => {
   const result = [];
   array.forEach((fixed, index, origin) => {
     const rest = [...origin];
-    const combination = getCombination(rest, selectedNum - 1);
-    combination.forEach((combi) => result.push([fixed, ...combi]));
+    const permutation = getRepeatPermutation(rest, selectedNum - 1);
+    permutation.forEach((permu) => result.push([fixed, ...permu]));
   })
   return result;
 }
