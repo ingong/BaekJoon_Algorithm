@@ -1,27 +1,15 @@
 const log = console.log;
 const array = [1, 2, 3, 4];
 const selectedNum = 2;
-
-const getPerumtation = (array, selectedNum) => {
-  if (selectedNum === 1) return array.map(v => [v]);
-  const result = [];
-
-  array.forEach((fixed, index, origin) => {
-    let rest = [...origin];
-    rest.splice(index, 1);
-    const permuation = getPerumtation(rest, selectedNum - 1);
-    permuation.map(value => result.push([fixed, ...value]))
-  })
-
-  return result;
-}
-
 const selected = new Array(4).fill(false);
 const answer = [];
+
+// 이전 index를 기억할 필요가 없다
 const permutation = (count) => {
   if (count === selectedNum) {
     const temp = [];
     selected.forEach((isSelected, index) => isSelected && temp.push(array[index]));
+    answer.push(temp);
     return;
   }
 
@@ -35,7 +23,3 @@ const permutation = (count) => {
 
 permutation(0);
 log(answer);
-
-// [1, 2, 3, 4] 에서 2개를 갖는 순열 반환하기
-const result = getPerumtation([1, 2, 3, 4], 2);
-log(result);
