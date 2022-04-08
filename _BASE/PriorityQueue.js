@@ -1,13 +1,17 @@
-class Heap {
+class MinHeap {
   constructor() {
     this.heap = [];
   }
 
   getLeftChildIndex = (parentIndex) => parentIndex * 2 + 1;
+  
   getRightChildIndex = (parentIndex) => parentIndex * 2 + 2;
+  
   getParentIndex = (childIndex) => Math.floor((childIndex - 1) / 2);
 
   peek = () => this.heap[0];
+
+  size = () => this.heap.length;
 
   insert = (key, value) => {
     const node = { key, value };
@@ -77,12 +81,12 @@ class Heap {
   };
 }
 
-class PriorityQueue extends Heap {
+class PriorityQueue extends MinHeap {
   constructor() {
     super();
   }
 
   enqueue = (priority, value) => this.insert(priority, value);
-  dequeue = () => this.remove();
+  dequeue = () => this.remove(); // {key: 우선순위, value: 원하는 값}
   isEmpty = () => this.heap.length <= 0;
 };
