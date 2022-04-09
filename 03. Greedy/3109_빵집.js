@@ -13,7 +13,7 @@ const solution = (input) => {
   let count = 0;
   let answer = false;
 
-  for (let row = 0; row < 2; row++) {
+  for (let row = 0; row < R; row++) {
     answer = false;
     DFS(row, 0); // error
   }
