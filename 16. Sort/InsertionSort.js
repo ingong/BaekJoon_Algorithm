@@ -11,5 +11,14 @@ const insertionSort = (array) => {
   }
 }
 
-insertionSort(numbers);
+const insertionSort2 = (array) => {
+  const length = array.length;
+  for (let i = 1; i < length; i++){
+    for (let j = i; j > 0; j--){
+      if (array[j - 1] > array[j]) [array[j - 1], array[j]] = [array[j], array[j - 1]];
+    }
+  }
+}
+
+insertionSort2(numbers);
 console.log(numbers); // [0, 1, 4, 5, 6, 44, 99, 283]
